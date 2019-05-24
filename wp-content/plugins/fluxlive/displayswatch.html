@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swatch</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="css/colorpicker.css" rel="stylesheet" type="text/css">
+        <script src="js/adapter/adapterflux.js"></script>
+        <script src="js/jscolornew/jscolor.js"></script>
+
+
+
+        <script>
+
+PlugNeditLoader=parent.PlugNeditLoader
+
+function fluxsetwindow(){
+ 
+  document.getElementById('thepicker').style.top='-5px';
+  var height = Math.max((window.innerHeight-50),30)
+var thepickerboxright=100
+var display='none';
+var width 
+document.getElementById('thepicker').style.right=0+'px'
+   if (window.innerHeight > 0 && window.innerHeight < 150 ){
+
+ width = Math.max((window.innerHeight+100),40)
+       
+   }else{
+
+  height= Math.max((window.innerHeight-110),30)
+    display='';
+   var tempwidthd=Math.min(window.innerWidth,1200)/100
+   var width = Math.max(((window.innerWidth/5)+(tempwidthd*(tempwidthd*1.9)-20)),80)
+ //    if (window.innerWidth > 500){ 
+  thepickerboxright=0
+  jspickbottom=25
+ 
+  //   width = Math.max(((window.innerWidth/2)),80)     
+ //    }
+
+   }
+
+
+//  
+// var classjs="{position:'left', width:830, height: "+height+", padding:0, shadow:false,borderWidth:0, backgroundColor:'transparent', insetColor:'#000',onFineChange:'FluxColor.ColorControl(undefined,this)'}"
+//var a = document.createElement('input')
+//a.setAttribute('class', classjs)
+//a.style.height=0+'px'
+//a.style.width=0+'px'
+//a.id='jspick';
+//a.style.visibility='hidden'
+ var dpicker=document.getElementById('newColor')
+ var picker=document.getElementById('jspick')
+ picker.jscolor.hide()
+
+dpicker.style.width='100%'
+//(+width+320)+'px'
+document.getElementById('colortypecl').style.right=width+180+"px"
+document.getElementById('colortypecl').style.display=display
+
+parent.document.getElementById('onTheFlySwatch').style.width=(width-130)+"px"
+document.getElementById('varswatch').style.display=display
+document.getElementById('colorsliderq').style.right=width+30+"px"
+document.getElementById('colorsliderq').style.width=height-60+"px"
+document.getElementById('colorsliderq').style.display=display
+document.getElementById('colorsinput').style.right=width+130+"px"
+document.getElementById('colorsinput').style.display=display
+document.getElementById('labels').style.top=height+15+'px'
+document.getElementById('labels').style.height=27+'px'
+document.getElementById('labels').style.width=320+'px'
+document.getElementById('box').style.right=width+10+'px'
+document.getElementById('varswatchb').style.right=width+86+"px"
+
+document.getElementById('thepicker').style.right=thepickerboxright+"px"
+document.getElementById('labels').style.right=thepickerboxright+'px'
+//document.getElementById('jspick').style.bottom=jspickbottom+"px"
+//dpicker.style.width=+(width+220)+'px'
+picker.jscolor.height=height
+picker.jscolor.width=width+30
+picker.jscolor.top=17
+  //var picker = new jscolor(a);
+    // inputparent.appendChild(a)
+        picker.jscolor.show()
+        
+
+inputparent.style.height=+(height)+'px'
+inputparent.style.width=+(width)+'px'
+
+    }
+inputparent = 0
+function resize() {
+
+if (inputparent == 0){
+inputparent = document.getElementById('jspick').parentNode;
+}
+
+
+
+  
+//inputparent.removeChild(inputparent.firstChild);
+//   inputparent.innerHTML='';
+
+fluxsetwindow()
+
+}
+
+
+
+   
+        </script>
+    </head>
+    <body onload="resize();"    onresize="resize();"   id='bodyid' style="background-color:transparent;">
+<div class="right colorslider">
+
+ <input type="text" onclick="FluxColor.ColorControl(this.style.backgroundColor)" id="jspick" value="ffcc050" style="" class="jscolor {position:'left', width:350, height:50, shadow:false,
+    borderWidth:0, borderColor:'transparent',
+  
+    backgroundColor:'transparent'}">
+            
+</div>
+
+<div class="right colorslider tobbot" sytle="display:none">
+<div class="right colorpicker">
+</div>
+<div>
+                <div class="colortext"></div>
+                <div class="inputscol" style="">
+                    <input type="text" id="jspick2" value="ffcc00" style="display:none" class="jscolor {position:'left',width:80, height:200, padding:0, shadow:false,
+    borderWidth:0, backgroundColor:'transparent', insetColor:'#000',onFineChange:'FluxColor.pupdate(this)'}">
+                </div>
+         
+            
+
+
+                <div class="swatchinputs">
+                    <div>
+                        <div class="inputcolortype" style="float:left">
+                      
+                   
+                            <div id="varswatch" class="varmenu" style=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+    
+<div id= "box" class="box none"  style="">
+    
+    <div id="rectsolidRGBA" class="pickerswatchRGBA  translay"> <div id="rectsolidRGBAinner" class="pickerswatchRGBAinner"> 
+<input type="text" id="rgba-color" value=""  class="inputmed rgba-color">
+    <div class="displaycolortext">
+                    HEX: <span class="colorchords" id="hex-str"></span>
+                    RBG: <span class="colorchords" id="rgb-str"></span>
+                    R, G, B = <span class="colorchords" id="rgb"></span>
+                    H, S, V = <span class="colorchords" id="hsv"></span>
+                </div>
+
+
+ <div id="rgba-trans" class="rgba-color translay2" > <div id="rgba-color3" style="color:white;width: 100px; float: left;" class="rgba-color"> 
+ Sample Text
+ </div>   
+ <div class="rgba-color sample" id="rgba-color4"  >Sample Text</div> 
+ 
+ </div>
+
+ </div>
+ </div>
+ 
+    
+<div class="samplediv" id="exampleclone">
+<div id="rectsolidRGB" class="pickerswatchRGB"><div id="rectsolidRGBinner" class="pickerswatchRGBinner"><input type="text" id="rgb-color" value="" class="inputmed"> </div> </div>
+
+<div id="rectsolidHEX" class="pickerswatchRGB"><div id="rectsolidHEXinner" class="pickerswatchRGBinner"> 
+<input  type="text" id="hex-color" value="" class="inputmed">  
+</div> </div>
+
+
+
+ 
+ 
+</div>
+
+</div>
+
+
+
+<!---
+<div id= "box" class="box none" >
+    
+  <div id="rectsolidRGBA" class="pickerswatchRGBA  translay"> <div id="rectsolidRGBAinner" class="pickerswatchRGBAinner"> 
+<input type="text" id="rgba-color" value=""  class="inputmed rgba-color">
+ <div id="rgba-trans" class="rgba-color translay2" > <div id="rgba-color3" style="color:white;width: 100px; float: left;" class="rgba-color"> 
+ Sample Text
+ </div>   
+ <div class="rgba-color sample" id="rgba-color4"  >Sample Text</div> 
+ 
+ </div>
+
+ </div>
+ </div>
+ 
+    
+<div class="samplediv" id="exampleclone">
+<div id="rectsolidRGB" class="pickerswatchRGB"><div id="rectsolidRGBinner" class="pickerswatchRGBinner"><input type="text" id="rgb-color" value="" class="inputmed"> </div> </div>
+
+<div id="rectsolidHEX" class="pickerswatchRGB"><div id="rectsolidHEXinner" class="pickerswatchRGBinner"> 
+<input  type="text" id="hex-color" value="" class="inputmed">  
+</div> </div>
+
+
+
+ 
+ 
+</div>
+
+</div>
+
+--->
+
+        </diV> 
+
+
+             <div id="colorsinput" class="colorinputs">
+                    <input id="rgb1-color" type="text" value="0" class="inputsmall">
+                    <input type="text" id="rgb2-color" value="0" class="inputsmall">
+                    <input type="text" id="rgb3-color" value="0" class="inputsmall">
+                    <input type="text" id="rgb4-color" value="100" class="inputsmall">
+                </div>
+         <div class="inputlarge fixedright">
+                                <div class="inputlarge translay">
+                                    <input id="oldColor" type="text" value="" onclick="FluxColor.ColorControl(this.value)"  class="inputlarge">
+                                </div>
+                                <div class="inputlarge translay checkerx">
+                                    <input id="newColor" type="text" value="" class="inputlarge" disabled>
+                                </div>
+                            </div>
+
+
+
+
+
+                            
+            <div id="varswatchholder">
+                <div class="swatchText">Page
+</div>
+                <div id="varswatcha1" clsss="flexbox"></div>
+                <div class="swatchText">Range 
+</div>
+                <div id="varswatchb" clsss="flexbox"></div>
+                <div class="swatchText">Hues 
+</div>
+                <div id="varswatchc" clsss="flexbox"></div>
+                <div class="swatchText">Angles 
+</div>
+                <div id="varswatchd" clsss="flexbox"></div>
+                <div id="varswatcha" clsss="flexbox"></div>
+            </div>
+
+         <div id ="colorsliderq" class="Leftsldider">
+                <table class="slider2column" style="">
+                    <tr>
+                        <td>
+                            <div class="slidershell" id="slidershell1">
+                                <div class="sliderfill rgbr" id="sliderfill1"></div>
+                                <div class="slidertrack rgbr" id="slidertrack1"></div>
+                                <div class="sliderthumb" id="sliderthumb1"></div>
+                                <input type="text" class="slidervalue" id="slidervalue1">
+                                <input class="slider" id="slider1" type="range" min="0" max="255" value="0" oninput="FluxColor.setValue(value,1,false,true);" onchange="FluxColor.setValue(value,1,false,true);"/>
+                            </div>
+                            <div class="slidershell" id="slidershell2" style="">
+                                <div class="sliderfill rgbg" id="sliderfill2"></div>
+                                <div class="slidertrack rgbg" id="slidertrack2"></div>
+                                <div class="sliderthumb" id="sliderthumb2"></div>
+                                <input type="text" class="slidervalue" id="slidervalue2">
+                                <input class="slider" id="slider2" type="range" min="0" max="255" value="0" oninput="FluxColor.setValue(value,2,false,true);" onchange="FluxColor.setValue(value,2,false,true);"/>
+                            </div>
+                            <div class="slidershell" id="slidershell3" style="">
+                                <div class="sliderfill rgbb" id="sliderfill3"></div>
+                                <div class="slidertrack rgbb" id="slidertrack3"></div>
+                                <div class="sliderthumb" id="sliderthumb3"></div>
+                                <input type="text" class="slidervalue" id="slidervalue3">
+                                <input class="slider" id="slider3" type="range" min="0" max="255" value="0" oninput="FluxColor.setValue(value,3,false,true);" onchange="FluxColor.setValue(value,3,false,true);"/>
+                            </div>
+                            <div class="slidershell" id="slidershell4">
+                                <div class="sliderfill slidertrack" id="sliderfill4"></div>
+                                <div class="slidertrack slideropacity" id="slidertrack4"></div>
+                                <div class="sliderthumb" id="sliderthumb4"></div>
+                                <input type="text" class="slidervalue" id="slidervalue4" value="75">
+                                <input class="slider" id="slider4" type="range" min="0" max="100" value="75" oninput="FluxColor.setValue(value,4,false.true);" onchange="FluxColor.setValue(value,4,false,true);"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+       
+
+
+            <div id='labels' class="menuselect tinycolor" style="">
+
+<div class="pickerimage">
+
+
+       <label class='selectedtext'>
+
+                 
+                <input data-Color="true" id="SelectedText" type="checkbox" name="Selected Text" value="SelectedText" class="check" onclick="FluxColor.ColorThis(this)">
+<img src="assets/select.png">Selection
+                </label>
+
+                                        <label class="Quickcolor">
+ <input data-Color="true" id="color" type="checkbox" name="color" value="color" class="check" onclick="FluxColor.ColorThis(this)">
+          <img src="assets/picker/textpicker.png">Color
+                                        </label>
+                                
+                                        <label class="Quickcolor">
+           <input data-Color="true" id="backgroundColor" type="checkbox" name="Background" value="Background" class="check" onclick="FluxColor.ColorThis(this)">
+  <img src="assets/picker/backgroundpicker.png">BackGround
+                                        </label>
+                                   
+   <label class="Quickcolor">
+   <input data-Color="true" id="borderColor" type="checkbox" name="borderColor" value="borderColor" class="check" onclick="FluxColor.ColorThis(this)">
+   <img src="assets/picker/boxshadowpicker.png">Border
+    </label>
+    <label class="Quickcolor">
+ <input data-Color="true" id="outlineColor" type="checkbox" name="outlineColor" value="outlineColor" class="check" onclick="FluxColor.ColorThis(this)">
+<img src="assets/picker/outline.png">Outline
+  </label>   
+                             
+  <label class="Quickcolor">
+  <input data-Color="true" id="textShadowColor" type="checkbox" name="textShadowColor" value="textShadowColor" class="check" onclick="FluxColor.ColorThis(this)">
+  <img src="assets/picker/textshadow.png"> Text Shadow
+  </label>
+                  
+ <label class="Quickcolor">
+    <input data-Color="true" id="boxShadowColor" type="checkbox" name="boxShadowColor" value="boxShadowColor" class="check" onclick="FluxColor.ColorThis(this)">
+    <img src="assets/picker/boxshadowpicker.png">Box Shadow
+  </label>
+
+
+  
+
+   
+                  <label class="Quickcolor" style='display:none'>
+
+                 
+                <input data-Color="true" id="textstroke" type="checkbox" name="Text Stroke" value="SelectedText" class="check" onclick="FluxColor.ColorThis(this)">
+                </label>
+
+                                    </div>
+          
+
+
+
+
+            <!---    <input type="button" name="Close" value="Close" class="checkbig2" onclick="parent.PlugNedit.CloseSwatchFrames()">
+               <label>
+  <input data-Color="true" id="outlineColor" type="checkbox" name="Outline" value="Outline" class="check" onclick="FluxColor.ColorThis(this)">Outline</label>
+
+                <label>
+     <input data-Color="true" id="textShadowColor" type="checkbox" name="Text Shadow" value="Text Shadow" class="check" onclick="FluxColor.ColorThis(this)">Txt Shadow
+     </label>
+ <label>      
+                <input data-Color="true" id="boxShadowColor" type="checkbox" name="Box " value="BoxShadow Shadow" class="check" onclick="FluxColor.ColorThis(this)">Box Shadow</label>
+
+
+               <label>
+              <input data-Color="true" id="borderColor" type="checkbox" name="Border" value="Border" class="check" onclick="FluxColor.ColorThis(this)">
+              Border
+           </label> 
+    <label>
+                          
+ <input data-Color="true" id="color" type="checkbox" name="Text" value="Text" class="check" onclick="FluxColor.ColorThis(this)">Txt Color
+           </label>
+ <label> 
+  
+             <input data-Color="true" id="backgroundColor" type="checkbox" name="Background" value="Background" class="check" onclick="FluxColor.ColorThis(this)">
+Background
+                </label> 
+                 <label class='selectedtext'>
+
+                 
+                <input data-Color="true" id="SelectedText" type="checkbox" name="Selected Text" value="SelectedText" class="check" onclick="FluxColor.ColorThis(this)">
+Selected
+                </label>
+                    <label class='stroke'>
+
+                 
+                <input data-Color="true" id="textstroke" type="checkbox" name="Text Stroke" value="SelectedText" class="check" onclick="FluxColor.ColorThis(this)">
+                </label>
+
+--->
+                
+
+</div>
+        
+            <div id="bottonsleftgo" class="menuselect" style="">
+          
+                       
+  <input type="button" name="Apply2" value="Apply2" class="checkbig2" onclick="FluxColor.Apply()">  
+
+ 
+        
+</div>
+</div>
+<div id='colortypecl'>
+                  <div class="inputlong2 translay" style="padding:0;margin:0;border:none;float:left">
+                                <input type="radio" name="type" value="hexed" checked="true" class="FL">
+                                <input id="rgba1-colordisplay2" type="text" value="HEX" class="inputlong3" oninput="FluxColor.ColorControl(this.value)">
+                            </div>
+                            <div class="inputlong2 translay" style="padding:0;margin:0;border:none;float:left">
+                                <input type="radio" name="type" value="rgb" class="FL">
+                                <input id="rgb1-colordisplay" type="text" value="RGB" class="inputlong3" disabled>
+                            </div>
+                            <div class="inputlong2 translay" style="padding:0;margin:0;border:none;float:left">
+                                <input type="radio" name="type" value="rgba" class="FL">
+                                <input id="rgba1-colordisplay" type="text" value="RGBA" class="inputlong3" disabled>
+                            </div>
+
+</div>
+
+                <div class="displaycolortext">
+                    HEX: <span class="colorchords" id="hex-str"></span>
+                    RBG: <span class="colorchords" id="rgb-str"></span>
+                    R, G, B = <span class="colorchords" id="rgb"></span>
+                    H, S, V = <span class="colorchords" id="hsv"></span>
+                </div>
+                <div id='thepicker'> </div>
+                <div id="copyswatch" class="copyswatch"></div>
+   <input type="button" name="Apply" value="Apply" class="checkbig" onclick="FluxColor.Apply()"> 
+   </body> 
+</html>
